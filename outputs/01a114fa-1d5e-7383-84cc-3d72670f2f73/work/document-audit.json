@@ -1,0 +1,569 @@
+{
+  "operations": 80,
+  "requestFields": 313,
+  "responseFields": 273,
+  "examples": 80,
+  "rules": 82,
+  "ids": [
+    {
+      "id": "API-001",
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "body": "LoginRequest",
+      "response": "AuthTokens"
+    },
+    {
+      "id": "API-002",
+      "method": "POST",
+      "path": "/api/v1/auth/refresh",
+      "body": "RefreshRequest",
+      "response": "AuthTokens"
+    },
+    {
+      "id": "API-003",
+      "method": "POST",
+      "path": "/api/v1/auth/register",
+      "body": "RegisterRequest",
+      "response": "AuthTokens"
+    },
+    {
+      "id": "API-004",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "body": "None",
+      "response": "User"
+    },
+    {
+      "id": "API-005",
+      "method": "PUT",
+      "path": "/api/v1/me",
+      "body": "ProfileRequest",
+      "response": "User"
+    },
+    {
+      "id": "API-006",
+      "method": "DELETE",
+      "path": "/api/v1/me",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-007",
+      "method": "GET",
+      "path": "/api/v1/authors",
+      "body": "None",
+      "response": "Author[]"
+    },
+    {
+      "id": "API-008",
+      "method": "GET",
+      "path": "/api/v1/books",
+      "body": "None",
+      "response": "BookPage"
+    },
+    {
+      "id": "API-009",
+      "method": "GET",
+      "path": "/api/v1/books/{id}",
+      "body": "None",
+      "response": "BookDetail"
+    },
+    {
+      "id": "API-010",
+      "method": "GET",
+      "path": "/api/v1/books/{id}/chapters",
+      "body": "None",
+      "response": "Chapter[]"
+    },
+    {
+      "id": "API-011",
+      "method": "GET",
+      "path": "/api/v1/books/{id}/reviews",
+      "body": "None",
+      "response": "ReviewDisplay[]"
+    },
+    {
+      "id": "API-012",
+      "method": "POST",
+      "path": "/api/v1/books/{id}/views",
+      "body": "ViewRequest",
+      "response": "None"
+    },
+    {
+      "id": "API-013",
+      "method": "GET",
+      "path": "/api/v1/books/popular",
+      "body": "None",
+      "response": "Book[]"
+    },
+    {
+      "id": "API-014",
+      "method": "GET",
+      "path": "/api/v1/categories",
+      "body": "None",
+      "response": "Category[]"
+    },
+    {
+      "id": "API-015",
+      "method": "GET",
+      "path": "/api/v1/me/library",
+      "body": "None",
+      "response": "LibraryPage"
+    },
+    {
+      "id": "API-016",
+      "method": "PUT",
+      "path": "/api/v1/me/library/{bookId}",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-017",
+      "method": "DELETE",
+      "path": "/api/v1/me/library/{bookId}",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-018",
+      "method": "GET",
+      "path": "/api/v1/me/library/counts",
+      "body": "None",
+      "response": "LibraryCounts"
+    },
+    {
+      "id": "API-019",
+      "method": "GET",
+      "path": "/api/v1/me/recently-viewed",
+      "body": "None",
+      "response": "RecentlyViewedItem[]"
+    },
+    {
+      "id": "API-020",
+      "method": "PUT",
+      "path": "/api/v1/me/reviews/{bookId}",
+      "body": "ReviewRequest",
+      "response": "Review"
+    },
+    {
+      "id": "API-021",
+      "method": "DELETE",
+      "path": "/api/v1/me/reviews/{bookId}",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-022",
+      "method": "GET",
+      "path": "/api/v1/me/saved",
+      "body": "None",
+      "response": "SavedItem[]"
+    },
+    {
+      "id": "API-023",
+      "method": "PUT",
+      "path": "/api/v1/me/saved/{bookId}",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-024",
+      "method": "DELETE",
+      "path": "/api/v1/me/saved/{bookId}",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-025",
+      "method": "GET",
+      "path": "/api/v1/me/reading/goals/{year}",
+      "body": "None",
+      "response": "GoalResult"
+    },
+    {
+      "id": "API-026",
+      "method": "PUT",
+      "path": "/api/v1/me/reading/goals/{year}",
+      "body": "GoalRequest",
+      "response": "ReadingGoal"
+    },
+    {
+      "id": "API-027",
+      "method": "GET",
+      "path": "/api/v1/me/reading/progress/{bookId}",
+      "body": "None",
+      "response": "ProgressResult"
+    },
+    {
+      "id": "API-028",
+      "method": "PUT",
+      "path": "/api/v1/me/reading/progress/{bookId}",
+      "body": "ProgressRequest",
+      "response": "ReadingProgress"
+    },
+    {
+      "id": "API-029",
+      "method": "POST",
+      "path": "/api/v1/me/reading/sessions",
+      "body": "SessionRequest",
+      "response": "ReadingSession"
+    },
+    {
+      "id": "API-030",
+      "method": "GET",
+      "path": "/api/v1/me/reading/statistics",
+      "body": "None",
+      "response": "ReadingStatistics"
+    },
+    {
+      "id": "API-031",
+      "method": "GET",
+      "path": "/api/v1/me/annotations/{kind}",
+      "body": "None",
+      "response": "Note[] / Bookmark[] / Highlight[]"
+    },
+    {
+      "id": "API-032",
+      "method": "POST",
+      "path": "/api/v1/me/annotations/{kind}",
+      "body": "AnnotationRequest",
+      "response": "Note / Bookmark / Highlight"
+    },
+    {
+      "id": "API-033",
+      "method": "PUT",
+      "path": "/api/v1/me/annotations/{kind}/{id}",
+      "body": "AnnotationRequest",
+      "response": "Note / Bookmark / Highlight"
+    },
+    {
+      "id": "API-034",
+      "method": "DELETE",
+      "path": "/api/v1/me/annotations/{kind}/{id}",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-035",
+      "method": "GET",
+      "path": "/api/v1/books/{bookId}/access",
+      "body": "None",
+      "response": "BookAccess"
+    },
+    {
+      "id": "API-036",
+      "method": "GET",
+      "path": "/api/v1/books/{bookId}/content",
+      "body": "None",
+      "response": "Binary PDF / EPUB"
+    },
+    {
+      "id": "API-037",
+      "method": "GET",
+      "path": "/api/v1/me/downloads",
+      "body": "None",
+      "response": "Download[]"
+    },
+    {
+      "id": "API-038",
+      "method": "PUT",
+      "path": "/api/v1/me/downloads/{bookId}",
+      "body": "DownloadRequest",
+      "response": "Download"
+    },
+    {
+      "id": "API-039",
+      "method": "GET",
+      "path": "/api/v1/collections",
+      "body": "None",
+      "response": "Collection[]"
+    },
+    {
+      "id": "API-040",
+      "method": "POST",
+      "path": "/api/v1/collections",
+      "body": "CollectionRequest",
+      "response": "Collection"
+    },
+    {
+      "id": "API-041",
+      "method": "GET",
+      "path": "/api/v1/collections/{id}",
+      "body": "None",
+      "response": "CollectionDetail"
+    },
+    {
+      "id": "API-042",
+      "method": "PUT",
+      "path": "/api/v1/collections/{id}",
+      "body": "CollectionRequest",
+      "response": "Collection"
+    },
+    {
+      "id": "API-043",
+      "method": "DELETE",
+      "path": "/api/v1/collections/{id}",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-044",
+      "method": "PUT",
+      "path": "/api/v1/collections/{id}/books/{bookId}",
+      "body": "CollectionBookRequest",
+      "response": "None"
+    },
+    {
+      "id": "API-045",
+      "method": "DELETE",
+      "path": "/api/v1/collections/{id}/books/{bookId}",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-046",
+      "method": "PUT",
+      "path": "/api/v1/collections/{id}/favorite",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-047",
+      "method": "DELETE",
+      "path": "/api/v1/collections/{id}/favorite",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-048",
+      "method": "GET",
+      "path": "/api/v1/collections/{id}/members",
+      "body": "None",
+      "response": "CollectionMember[]"
+    },
+    {
+      "id": "API-049",
+      "method": "PUT",
+      "path": "/api/v1/collections/{id}/members",
+      "body": "InviteRequest",
+      "response": "CollectionMember"
+    },
+    {
+      "id": "API-050",
+      "method": "DELETE",
+      "path": "/api/v1/collections/{id}/members/{memberId}",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-051",
+      "method": "PUT",
+      "path": "/api/v1/collections/{id}/membership",
+      "body": "MembershipRequest",
+      "response": "CollectionMember"
+    },
+    {
+      "id": "API-052",
+      "method": "GET",
+      "path": "/api/v1/collections/invitations",
+      "body": "None",
+      "response": "CollectionMember[]"
+    },
+    {
+      "id": "API-053",
+      "method": "GET",
+      "path": "/api/v1/me/entitlements",
+      "body": "None",
+      "response": "BookEntitlement[]"
+    },
+    {
+      "id": "API-054",
+      "method": "GET",
+      "path": "/api/v1/me/orders",
+      "body": "None",
+      "response": "Order[]"
+    },
+    {
+      "id": "API-055",
+      "method": "POST",
+      "path": "/api/v1/me/orders",
+      "body": "CheckoutRequest",
+      "response": "Order"
+    },
+    {
+      "id": "API-056",
+      "method": "GET",
+      "path": "/api/v1/me/orders/{id}",
+      "body": "None",
+      "response": "OrderDetail"
+    },
+    {
+      "id": "API-057",
+      "method": "POST",
+      "path": "/api/v1/me/orders/{id}/cancel",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-058",
+      "method": "GET",
+      "path": "/api/v1/me/subscriptions",
+      "body": "None",
+      "response": "UserSubscription[]"
+    },
+    {
+      "id": "API-059",
+      "method": "POST",
+      "path": "/api/v1/me/subscriptions",
+      "body": "SubscriptionRequest",
+      "response": "UserSubscription"
+    },
+    {
+      "id": "API-060",
+      "method": "POST",
+      "path": "/api/v1/me/subscriptions/{id}/cancel",
+      "body": "None",
+      "response": "UserSubscription"
+    },
+    {
+      "id": "API-061",
+      "method": "GET",
+      "path": "/api/v1/subscription-plans",
+      "body": "None",
+      "response": "SubscriptionPlan[]"
+    },
+    {
+      "id": "API-062",
+      "method": "POST",
+      "path": "/api/v1/payments/callback",
+      "body": "PaymentCallback",
+      "response": "Order / UserSubscription"
+    },
+    {
+      "id": "API-063",
+      "method": "POST",
+      "path": "/api/v1/admin/authors",
+      "body": "AuthorRequest",
+      "response": "Author"
+    },
+    {
+      "id": "API-064",
+      "method": "PUT",
+      "path": "/api/v1/admin/authors/{id}",
+      "body": "AuthorRequest",
+      "response": "Author"
+    },
+    {
+      "id": "API-065",
+      "method": "GET",
+      "path": "/api/v1/admin/books",
+      "body": "None",
+      "response": "Book[]"
+    },
+    {
+      "id": "API-066",
+      "method": "POST",
+      "path": "/api/v1/admin/books",
+      "body": "BookRequest",
+      "response": "Book"
+    },
+    {
+      "id": "API-067",
+      "method": "PUT",
+      "path": "/api/v1/admin/books/{bookId}/authors/{authorId}",
+      "body": "AuthorLinkRequest",
+      "response": "None"
+    },
+    {
+      "id": "API-068",
+      "method": "DELETE",
+      "path": "/api/v1/admin/books/{bookId}/authors/{authorId}",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-069",
+      "method": "PUT",
+      "path": "/api/v1/admin/books/{bookId}/categories/{categoryId}",
+      "body": "CategoryLinkRequest",
+      "response": "None"
+    },
+    {
+      "id": "API-070",
+      "method": "DELETE",
+      "path": "/api/v1/admin/books/{bookId}/categories/{categoryId}",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-071",
+      "method": "POST",
+      "path": "/api/v1/admin/books/{bookId}/chapters",
+      "body": "ChapterRequest",
+      "response": "Chapter"
+    },
+    {
+      "id": "API-072",
+      "method": "PUT",
+      "path": "/api/v1/admin/books/{bookId}/chapters/{id}",
+      "body": "ChapterRequest",
+      "response": "Chapter"
+    },
+    {
+      "id": "API-073",
+      "method": "PUT",
+      "path": "/api/v1/admin/books/{id}",
+      "body": "BookRequest",
+      "response": "Book"
+    },
+    {
+      "id": "API-074",
+      "method": "DELETE",
+      "path": "/api/v1/admin/books/{id}",
+      "body": "None",
+      "response": "None"
+    },
+    {
+      "id": "API-075",
+      "method": "POST",
+      "path": "/api/v1/admin/categories",
+      "body": "CategoryRequest",
+      "response": "Category"
+    },
+    {
+      "id": "API-076",
+      "method": "PUT",
+      "path": "/api/v1/admin/categories/{id}",
+      "body": "CategoryRequest",
+      "response": "Category"
+    },
+    {
+      "id": "API-077",
+      "method": "PUT",
+      "path": "/api/v1/admin/reviews/{id}/status",
+      "body": "ReviewModeration",
+      "response": "Review"
+    },
+    {
+      "id": "API-078",
+      "method": "POST",
+      "path": "/api/v1/admin/subscription-plans",
+      "body": "PlanRequest",
+      "response": "SubscriptionPlan"
+    },
+    {
+      "id": "API-079",
+      "method": "PUT",
+      "path": "/api/v1/admin/subscription-plans/{id}",
+      "body": "PlanRequest",
+      "response": "SubscriptionPlan"
+    },
+    {
+      "id": "API-080",
+      "method": "GET",
+      "path": "/health",
+      "body": "None",
+      "response": "HealthResult"
+    }
+  ]
+}

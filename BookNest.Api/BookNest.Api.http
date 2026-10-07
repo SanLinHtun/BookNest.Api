@@ -1,0 +1,50 @@
+@host = https://localhost:7099
+@token = REPLACE_WITH_ACCESS_TOKEN
+
+### Register (returns accessToken, refreshToken and expiresIn)
+POST {{host}}/api/v1/auth/register
+Content-Type: application/json
+
+{"email":"reader@example.com","password":"ExamplePassword123!","displayName":"Reader"}
+
+### Login
+POST {{host}}/api/v1/auth/login
+Content-Type: application/json
+
+{"email":"reader@example.com","password":"ExamplePassword123!"}
+
+### Catalog
+GET {{host}}/api/v1/books?page=1&pageSize=20
+
+### Profile
+GET {{host}}/api/v1/me
+Authorization: Bearer {{token}}
+
+### Library (membership does not grant paid content access)
+PUT {{host}}/api/v1/me/library/1
+Authorization: Bearer {{token}}
+
+### Checkout uses server prices
+POST {{host}}/api/v1/me/orders
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{"items":[{"bookId":1,"accessType":"PURCHASE"}]}
+
+### Reading position, after verified payment
+PUT {{host}}/api/v1/me/reading/progress/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{"currentPage":10,"chapterId":null,"locationToken":null,"status":"READING"}
+
+### Statistics
+GET {{host}}/api/v1/me/reading/statistics?period=week
+Authorization: Bearer {{token}}
+
+### Annotation
+POST {{host}}/api/v1/me/annotations/notes
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{"bookId":1,"chapterId":null,"pageNo":10,"locationToken":null,"title":"My note","text":"Remember this passage."}

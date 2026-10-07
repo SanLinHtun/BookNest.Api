@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="BookNest.Api/BookNest.Api.csproj" />
+  <Project Path="BookNest.Verification/BookNest.Verification.csproj" />
+</Solution>

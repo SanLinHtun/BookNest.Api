@@ -1,0 +1,4156 @@
+{
+  "endpoints": [
+    {
+      "controller": "AdminController",
+      "action": "Books",
+      "method": "GET",
+      "route": "/api/v1/admin/books",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "page",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 1,
+          "validation": ""
+        },
+        {
+          "name": "pageSize",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 20,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "CreateBook",
+      "method": "POST",
+      "route": "/api/v1/admin/books",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "r",
+          "type": "BookRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "UpdateBook",
+      "method": "PUT",
+      "route": "/api/v1/admin/books/{id:long}",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "BookRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "ArchiveBook",
+      "method": "DELETE",
+      "route": "/api/v1/admin/books/{id:long}",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "CreateAuthor",
+      "method": "POST",
+      "route": "/api/v1/admin/authors",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "r",
+          "type": "AuthorRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "UpdateAuthor",
+      "method": "PUT",
+      "route": "/api/v1/admin/authors/{id:long}",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "AuthorRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "CreateCategory",
+      "method": "POST",
+      "route": "/api/v1/admin/categories",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "r",
+          "type": "CategoryRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "UpdateCategory",
+      "method": "PUT",
+      "route": "/api/v1/admin/categories/{id:long}",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "CategoryRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "CreateChapter",
+      "method": "POST",
+      "route": "/api/v1/admin/books/{bookId:long}/chapters",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "ChapterRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "UpdateChapter",
+      "method": "PUT",
+      "route": "/api/v1/admin/books/{bookId:long}/chapters/{id:long}",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "ChapterRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "LinkAuthor",
+      "method": "PUT",
+      "route": "/api/v1/admin/books/{bookId:long}/authors/{authorId:long}",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "authorId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "AuthorLinkRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "UnlinkAuthor",
+      "method": "DELETE",
+      "route": "/api/v1/admin/books/{bookId:long}/authors/{authorId:long}",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "authorId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "LinkCategory",
+      "method": "PUT",
+      "route": "/api/v1/admin/books/{bookId:long}/categories/{categoryId:long}",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "categoryId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "CategoryLinkRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "UnlinkCategory",
+      "method": "DELETE",
+      "route": "/api/v1/admin/books/{bookId:long}/categories/{categoryId:long}",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "categoryId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "CreatePlan",
+      "method": "POST",
+      "route": "/api/v1/admin/subscription-plans",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "r",
+          "type": "PlanRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "UpdatePlan",
+      "method": "PUT",
+      "route": "/api/v1/admin/subscription-plans/{id:long}",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "PlanRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AdminController",
+      "action": "ModerateReview",
+      "method": "PUT",
+      "route": "/api/v1/admin/reviews/{id:long}/status",
+      "auth": "Admin bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "ReviewModeration",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AnnotationsController",
+      "action": "List",
+      "method": "GET",
+      "route": "/api/v1/me/annotations/{kind}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "kind",
+          "type": "String",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "bookId",
+          "type": "Int64?",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "page",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 1,
+          "validation": ""
+        },
+        {
+          "name": "pageSize",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 20,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AnnotationsController",
+      "action": "Create",
+      "method": "POST",
+      "route": "/api/v1/me/annotations/{kind}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "kind",
+          "type": "String",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "AnnotationRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AnnotationsController",
+      "action": "Update",
+      "method": "PUT",
+      "route": "/api/v1/me/annotations/{kind}/{id:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "kind",
+          "type": "String",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "AnnotationRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AnnotationsController",
+      "action": "Delete",
+      "method": "DELETE",
+      "route": "/api/v1/me/annotations/{kind}/{id:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "kind",
+          "type": "String",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AuthController",
+      "action": "Register",
+      "method": "POST",
+      "route": "/api/v1/auth/register",
+      "auth": "Public",
+      "parameters": [
+        {
+          "name": "request",
+          "type": "RegisterRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AuthController",
+      "action": "Login",
+      "method": "POST",
+      "route": "/api/v1/auth/login",
+      "auth": "Public",
+      "parameters": [
+        {
+          "name": "request",
+          "type": "LoginRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "AuthController",
+      "action": "Refresh",
+      "method": "POST",
+      "route": "/api/v1/auth/refresh",
+      "auth": "Public",
+      "parameters": [
+        {
+          "name": "request",
+          "type": "RefreshRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CatalogController",
+      "action": "Books",
+      "method": "GET",
+      "route": "/api/v1/books",
+      "auth": "Public",
+      "parameters": [
+        {
+          "name": "search",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "categoryId",
+          "type": "Int64?",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "page",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 1,
+          "validation": ""
+        },
+        {
+          "name": "pageSize",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 20,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CatalogController",
+      "action": "Detail",
+      "method": "GET",
+      "route": "/api/v1/books/{id:long}",
+      "auth": "Public",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CatalogController",
+      "action": "Chapters",
+      "method": "GET",
+      "route": "/api/v1/books/{id:long}/chapters",
+      "auth": "Public",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CatalogController",
+      "action": "Categories",
+      "method": "GET",
+      "route": "/api/v1/categories",
+      "auth": "Public",
+      "parameters": []
+    },
+    {
+      "controller": "CatalogController",
+      "action": "Authors",
+      "method": "GET",
+      "route": "/api/v1/authors",
+      "auth": "Public",
+      "parameters": [
+        {
+          "name": "page",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 1,
+          "validation": ""
+        },
+        {
+          "name": "pageSize",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 20,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CatalogController",
+      "action": "Reviews",
+      "method": "GET",
+      "route": "/api/v1/books/{id:long}/reviews",
+      "auth": "Public",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "page",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 1,
+          "validation": ""
+        },
+        {
+          "name": "pageSize",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 20,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CatalogController",
+      "action": "Popular",
+      "method": "GET",
+      "route": "/api/v1/books/popular",
+      "auth": "Public",
+      "parameters": []
+    },
+    {
+      "controller": "CatalogController",
+      "action": "View",
+      "method": "POST",
+      "route": "/api/v1/books/{id:long}/views",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "request",
+          "type": "ViewRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "List",
+      "method": "GET",
+      "route": "/api/v1/collections",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "tab",
+          "type": "String",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": "owned",
+          "validation": ""
+        },
+        {
+          "name": "page",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 1,
+          "validation": ""
+        },
+        {
+          "name": "pageSize",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 20,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "Detail",
+      "method": "GET",
+      "route": "/api/v1/collections/{id:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "page",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 1,
+          "validation": ""
+        },
+        {
+          "name": "pageSize",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 20,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "Create",
+      "method": "POST",
+      "route": "/api/v1/collections",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "r",
+          "type": "CollectionRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "Update",
+      "method": "PUT",
+      "route": "/api/v1/collections/{id:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "CollectionRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "Delete",
+      "method": "DELETE",
+      "route": "/api/v1/collections/{id:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "AddBook",
+      "method": "PUT",
+      "route": "/api/v1/collections/{id:long}/books/{bookId:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "CollectionBookRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "RemoveBook",
+      "method": "DELETE",
+      "route": "/api/v1/collections/{id:long}/books/{bookId:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "Favorite",
+      "method": "PUT",
+      "route": "/api/v1/collections/{id:long}/favorite",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "Unfavorite",
+      "method": "DELETE",
+      "route": "/api/v1/collections/{id:long}/favorite",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "Members",
+      "method": "GET",
+      "route": "/api/v1/collections/{id:long}/members",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "Invite",
+      "method": "PUT",
+      "route": "/api/v1/collections/{id:long}/members",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "InviteRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "Respond",
+      "method": "PUT",
+      "route": "/api/v1/collections/{id:long}/membership",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "MembershipRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "Revoke",
+      "method": "DELETE",
+      "route": "/api/v1/collections/{id:long}/members/{memberId:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "memberId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CollectionsController",
+      "action": "Invitations",
+      "method": "GET",
+      "route": "/api/v1/collections/invitations",
+      "auth": "User bearer",
+      "parameters": []
+    },
+    {
+      "controller": "CommerceController",
+      "action": "Checkout",
+      "method": "POST",
+      "route": "/api/v1/me/orders",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "r",
+          "type": "CheckoutRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CommerceController",
+      "action": "Orders",
+      "method": "GET",
+      "route": "/api/v1/me/orders",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "page",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 1,
+          "validation": ""
+        },
+        {
+          "name": "pageSize",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 20,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CommerceController",
+      "action": "Order",
+      "method": "GET",
+      "route": "/api/v1/me/orders/{id:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CommerceController",
+      "action": "CancelOrder",
+      "method": "POST",
+      "route": "/api/v1/me/orders/{id:long}/cancel",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CommerceController",
+      "action": "Plans",
+      "method": "GET",
+      "route": "/api/v1/subscription-plans",
+      "auth": "Public",
+      "parameters": []
+    },
+    {
+      "controller": "CommerceController",
+      "action": "Subscriptions",
+      "method": "GET",
+      "route": "/api/v1/me/subscriptions",
+      "auth": "User bearer",
+      "parameters": []
+    },
+    {
+      "controller": "CommerceController",
+      "action": "Subscribe",
+      "method": "POST",
+      "route": "/api/v1/me/subscriptions",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "r",
+          "type": "SubscriptionRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CommerceController",
+      "action": "CancelSubscription",
+      "method": "POST",
+      "route": "/api/v1/me/subscriptions/{id:long}/cancel",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "CommerceController",
+      "action": "Entitlements",
+      "method": "GET",
+      "route": "/api/v1/me/entitlements",
+      "auth": "User bearer",
+      "parameters": []
+    },
+    {
+      "controller": "DownloadsController",
+      "action": "List",
+      "method": "GET",
+      "route": "/api/v1/me/downloads",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "deviceKey",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 100"
+        },
+        {
+          "name": "page",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 1,
+          "validation": ""
+        },
+        {
+          "name": "pageSize",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 20,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "DownloadsController",
+      "action": "Update",
+      "method": "PUT",
+      "route": "/api/v1/me/downloads/{bookId:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "DownloadRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "DownloadsController",
+      "action": "Access",
+      "method": "GET",
+      "route": "/api/v1/books/{bookId:long}/access",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "offline",
+          "type": "Boolean",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": false,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "DownloadsController",
+      "action": "Content",
+      "method": "GET",
+      "route": "/api/v1/books/{bookId:long}/content",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "offline",
+          "type": "Boolean",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": false,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "LibraryController",
+      "action": "Library",
+      "method": "GET",
+      "route": "/api/v1/me/library",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "page",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 1,
+          "validation": ""
+        },
+        {
+          "name": "pageSize",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 20,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "LibraryController",
+      "action": "Add",
+      "method": "PUT",
+      "route": "/api/v1/me/library/{bookId:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "LibraryController",
+      "action": "Archive",
+      "method": "DELETE",
+      "route": "/api/v1/me/library/{bookId:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "LibraryController",
+      "action": "Saved",
+      "method": "GET",
+      "route": "/api/v1/me/saved",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "page",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 1,
+          "validation": ""
+        },
+        {
+          "name": "pageSize",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 20,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "LibraryController",
+      "action": "Save",
+      "method": "PUT",
+      "route": "/api/v1/me/saved/{bookId:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "LibraryController",
+      "action": "Unsave",
+      "method": "DELETE",
+      "route": "/api/v1/me/saved/{bookId:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "LibraryController",
+      "action": "Recent",
+      "method": "GET",
+      "route": "/api/v1/me/recently-viewed",
+      "auth": "User bearer",
+      "parameters": []
+    },
+    {
+      "controller": "LibraryController",
+      "action": "Counts",
+      "method": "GET",
+      "route": "/api/v1/me/library/counts",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "deviceKey",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "LibraryController",
+      "action": "Review",
+      "method": "PUT",
+      "route": "/api/v1/me/reviews/{bookId:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "ReviewRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "LibraryController",
+      "action": "DeleteReview",
+      "method": "DELETE",
+      "route": "/api/v1/me/reviews/{bookId:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "PaymentCallbacksController",
+      "action": "Callback",
+      "method": "POST",
+      "route": "/api/v1/payments/callback",
+      "auth": "Public",
+      "parameters": []
+    },
+    {
+      "controller": "ProfileController",
+      "action": "Get",
+      "method": "GET",
+      "route": "/api/v1/me",
+      "auth": "User bearer",
+      "parameters": []
+    },
+    {
+      "controller": "ProfileController",
+      "action": "Update",
+      "method": "PUT",
+      "route": "/api/v1/me",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "request",
+          "type": "ProfileRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "ProfileController",
+      "action": "Delete",
+      "method": "DELETE",
+      "route": "/api/v1/me",
+      "auth": "User bearer",
+      "parameters": []
+    },
+    {
+      "controller": "ReadingController",
+      "action": "GetProgress",
+      "method": "GET",
+      "route": "/api/v1/me/reading/progress/{bookId:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "ReadingController",
+      "action": "Progress",
+      "method": "PUT",
+      "route": "/api/v1/me/reading/progress/{bookId:long}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "ProgressRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "ReadingController",
+      "action": "Session",
+      "method": "POST",
+      "route": "/api/v1/me/reading/sessions",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "r",
+          "type": "SessionRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "ReadingController",
+      "action": "SetGoal",
+      "method": "PUT",
+      "route": "/api/v1/me/reading/goals/{year:int}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "year",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "r",
+          "type": "GoalRequest",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "ReadingController",
+      "action": "Goal",
+      "method": "GET",
+      "route": "/api/v1/me/reading/goals/{year:int}",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "year",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "controller": "ReadingController",
+      "action": "Statistics",
+      "method": "GET",
+      "route": "/api/v1/me/reading/statistics",
+      "auth": "User bearer",
+      "parameters": [
+        {
+          "name": "period",
+          "type": "String",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": "week",
+          "validation": ""
+        }
+      ]
+    }
+  ],
+  "schemas": [
+    {
+      "name": "AnnotationRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "chapterId",
+          "type": "Int64?",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "pageNo",
+          "type": "Int32?",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 1\u20132147483647"
+        },
+        {
+          "name": "locationToken",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 500"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 150"
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 20000"
+        },
+        {
+          "name": "startAnchor",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 500"
+        },
+        {
+          "name": "endAnchor",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 500"
+        },
+        {
+          "name": "colorCode",
+          "type": "String",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": "YELLOW",
+          "validation": "Pattern: YELLOW|GREEN|BLUE|PINK"
+        }
+      ]
+    },
+    {
+      "name": "AuthorLinkRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "displayOrder",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 1,
+          "validation": "Range 1\u20132147483647"
+        }
+      ]
+    },
+    {
+      "name": "AuthorRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "authorName",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 150"
+        },
+        {
+          "name": "bio",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 20000"
+        }
+      ]
+    },
+    {
+      "name": "BookRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "title",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 255"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 20000"
+        },
+        {
+          "name": "coverImageUrl",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 1000"
+        },
+        {
+          "name": "isbn",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 20"
+        },
+        {
+          "name": "publisherName",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 255"
+        },
+        {
+          "name": "publishedDate",
+          "type": "DateOnly?",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "languageCode",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 35"
+        },
+        {
+          "name": "pageCount",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 1\u20132147483647"
+        },
+        {
+          "name": "purchasePrice",
+          "type": "Decimal",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 0\u20139999999999.99"
+        },
+        {
+          "name": "rentalPrice",
+          "type": "Decimal",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 0\u20139999999999.99"
+        },
+        {
+          "name": "currencyCode",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Pattern: [A-Z]{3}"
+        },
+        {
+          "name": "rentalDays",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 1\u20133650"
+        },
+        {
+          "name": "previewUrl",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 1000"
+        },
+        {
+          "name": "contentStorageKey",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 1000"
+        },
+        {
+          "name": "fileFormat",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Pattern: PDF|EPUB"
+        },
+        {
+          "name": "fileSizeBytes",
+          "type": "Int64?",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 0\u20139.223372036854776E\u002B18"
+        },
+        {
+          "name": "contentVersion",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 1\u20132147483647"
+        },
+        {
+          "name": "premiumEligible",
+          "type": "Boolean",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Pattern: DRAFT|PUBLISHED|ARCHIVED"
+        }
+      ]
+    },
+    {
+      "name": "CategoryLinkRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "isPrimary",
+          "type": "Boolean",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": false,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "name": "CategoryRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "parentCategoryId",
+          "type": "Int64?",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 100"
+        },
+        {
+          "name": "slug",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 100"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 20000"
+        },
+        {
+          "name": "iconKey",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 100"
+        },
+        {
+          "name": "bannerImageUrl",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 1000"
+        },
+        {
+          "name": "sortOrder",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "isActive",
+          "type": "Boolean",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": true,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "name": "ChapterRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "chapterNo",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 1\u20132147483647"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 255"
+        },
+        {
+          "name": "startPage",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 1\u20132147483647"
+        },
+        {
+          "name": "endPage",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 1\u20132147483647"
+        },
+        {
+          "name": "sortOrder",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "name": "CheckoutLine",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "accessType",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Pattern: PURCHASE|RENTAL"
+        }
+      ]
+    },
+    {
+      "name": "CheckoutRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "items",
+          "type": "CheckoutLine[]",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Min length 1; Max length 100"
+        }
+      ]
+    },
+    {
+      "name": "CollectionBookRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "sortOrder",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": 0,
+          "validation": "Range 0\u20132147483647"
+        }
+      ]
+    },
+    {
+      "name": "CollectionRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "name",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 100"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 500"
+        },
+        {
+          "name": "coverImageUrl",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 1000"
+        },
+        {
+          "name": "visibility",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": true,
+          "defaultValue": "PRIVATE",
+          "validation": "Required; Pattern: PRIVATE|SHARED|PUBLIC"
+        }
+      ]
+    },
+    {
+      "name": "DownloadRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "deviceKey",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 100"
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Pattern: QUEUED|DOWNLOADING|COMPLETED|FAILED|REMOVED"
+        },
+        {
+          "name": "bytesDownloaded",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 0\u20139.223372036854776E\u002B18"
+        }
+      ]
+    },
+    {
+      "name": "GoalRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "targetBooks",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 1\u20132147483647"
+        }
+      ]
+    },
+    {
+      "name": "InviteRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "role",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": true,
+          "defaultValue": "VIEWER",
+          "validation": "Required; Pattern: VIEWER|EDITOR"
+        }
+      ]
+    },
+    {
+      "name": "LoginRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "email",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Valid email format"
+        },
+        {
+          "name": "password",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 128"
+        }
+      ]
+    },
+    {
+      "name": "MembershipRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Pattern: ACCEPTED|DECLINED"
+        }
+      ]
+    },
+    {
+      "name": "PaymentCallback",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "event",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Pattern: ORDER_PAID|ORDER_REFUNDED|SUBSCRIPTION_PAID"
+        },
+        {
+          "name": "resourceId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "reference",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 150"
+        },
+        {
+          "name": "amount",
+          "type": "Decimal",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 0\u20139999999999.99"
+        },
+        {
+          "name": "currencyCode",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Length 3\u20133"
+        }
+      ]
+    },
+    {
+      "name": "PlanRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "planCode",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 30"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 100"
+        },
+        {
+          "name": "price",
+          "type": "Decimal",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 0\u20139999999999.99"
+        },
+        {
+          "name": "currencyCode",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Pattern: [A-Z]{3}"
+        },
+        {
+          "name": "billingInterval",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Pattern: MONTH|YEAR"
+        },
+        {
+          "name": "offlineAccess",
+          "type": "Boolean",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": true,
+          "validation": ""
+        },
+        {
+          "name": "adFree",
+          "type": "Boolean",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": true,
+          "validation": ""
+        },
+        {
+          "name": "isActive",
+          "type": "Boolean",
+          "nullable": false,
+          "required": false,
+          "hasDefault": true,
+          "defaultValue": true,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "name": "ProfileRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "displayName",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 150"
+        },
+        {
+          "name": "avatarUrl",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 1000"
+        },
+        {
+          "name": "bio",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 100"
+        },
+        {
+          "name": "timezone",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 64"
+        }
+      ]
+    },
+    {
+      "name": "ProgressRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "currentPage",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 0\u20132147483647"
+        },
+        {
+          "name": "chapterId",
+          "type": "Int64?",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "locationToken",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 500"
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Pattern: NOT_STARTED|READING|FINISHED"
+        }
+      ]
+    },
+    {
+      "name": "RefreshRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "refreshToken",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required"
+        }
+      ]
+    },
+    {
+      "name": "RegisterRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "email",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Valid email format; Max length 254"
+        },
+        {
+          "name": "password",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Min length 12; Max length 128"
+        },
+        {
+          "name": "displayName",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 150"
+        }
+      ]
+    },
+    {
+      "name": "ReviewModeration",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Pattern: PUBLISHED|HIDDEN"
+        }
+      ]
+    },
+    {
+      "name": "ReviewRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "rating",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 1\u20135"
+        },
+        {
+          "name": "reviewText",
+          "type": "String",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Max length 20000"
+        }
+      ]
+    },
+    {
+      "name": "SessionRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "clientSessionKey",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 100"
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "chapterId",
+          "type": "Int64?",
+          "nullable": true,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "startedAt",
+          "type": "DateTimeOffset",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "endedAt",
+          "type": "DateTimeOffset",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        },
+        {
+          "name": "activeSeconds",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 0\u20132147483647"
+        },
+        {
+          "name": "startPage",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 0\u20132147483647"
+        },
+        {
+          "name": "endPage",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 0\u20132147483647"
+        },
+        {
+          "name": "pagesRead",
+          "type": "Int32",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Range 0\u20132147483647"
+        }
+      ]
+    },
+    {
+      "name": "SubscriptionRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "planId",
+          "type": "Int64",
+          "nullable": false,
+          "required": false,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": ""
+        }
+      ]
+    },
+    {
+      "name": "ViewRequest",
+      "kind": "Request",
+      "fields": [
+        {
+          "name": "eventKey",
+          "type": "String",
+          "nullable": false,
+          "required": true,
+          "hasDefault": false,
+          "defaultValue": null,
+          "validation": "Required; Max length 100"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Author",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "authorId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "authorName",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "bio",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Book",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "coverImageUrl",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "isbn",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "publisherName",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "publishedDate",
+          "type": "DateOnly?",
+          "nullable": true
+        },
+        {
+          "name": "languageCode",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "pageCount",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "purchasePrice",
+          "type": "Decimal",
+          "nullable": false
+        },
+        {
+          "name": "rentalPrice",
+          "type": "Decimal",
+          "nullable": false
+        },
+        {
+          "name": "currencyCode",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "rentalDays",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "previewUrl",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "fileFormat",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "fileSizeBytes",
+          "type": "Int64?",
+          "nullable": true
+        },
+        {
+          "name": "contentVersion",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "premiumEligible",
+          "type": "Boolean",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "BookAuthor",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "authorId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "displayOrder",
+          "type": "Int32",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "BookCategory",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "categoryId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "isPrimary",
+          "type": "Boolean",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "BookEntitlement",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "entitlementId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "orderItemId",
+          "type": "Int64?",
+          "nullable": true
+        },
+        {
+          "name": "subscriptionId",
+          "type": "Int64?",
+          "nullable": true
+        },
+        {
+          "name": "sourceType",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "startsAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "expiresAt",
+          "type": "DateTimeOffset?",
+          "nullable": true
+        },
+        {
+          "name": "revokedAt",
+          "type": "DateTimeOffset?",
+          "nullable": true
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Bookmark",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "bookmarkId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "chapterId",
+          "type": "Int64?",
+          "nullable": true
+        },
+        {
+          "name": "pageNo",
+          "type": "Int32?",
+          "nullable": true
+        },
+        {
+          "name": "locationToken",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "label",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "BookViewHistory",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "viewId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "viewedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "eventKey",
+          "type": "String",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "categoryId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "parentCategoryId",
+          "type": "Int64?",
+          "nullable": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "slug",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "iconKey",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "bannerImageUrl",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "sortOrder",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "isActive",
+          "type": "Boolean",
+          "nullable": false
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Chapter",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "chapterId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "chapterNo",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "startPage",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "endPage",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "sortOrder",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Collection",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "collectionId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "coverImageUrl",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "visibility",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "CollectionBook",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "collectionId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "sortOrder",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "addedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "CollectionFavorite",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "collectionId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "favoritedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "CollectionMember",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "collectionId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "role",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "joinedAt",
+          "type": "DateTimeOffset?",
+          "nullable": true
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Download",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "downloadId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "deviceKey",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "contentVersion",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "bytesDownloaded",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "downloadedAt",
+          "type": "DateTimeOffset?",
+          "nullable": true
+        },
+        {
+          "name": "accessExpiresAt",
+          "type": "DateTimeOffset?",
+          "nullable": true
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Highlight",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "highlightId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "chapterId",
+          "type": "Int64?",
+          "nullable": true
+        },
+        {
+          "name": "pageNo",
+          "type": "Int32?",
+          "nullable": true
+        },
+        {
+          "name": "locationToken",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "highlightedText",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "startAnchor",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "endAnchor",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "colorCode",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Note",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "noteId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "chapterId",
+          "type": "Int64?",
+          "nullable": true
+        },
+        {
+          "name": "pageNo",
+          "type": "Int32?",
+          "nullable": true
+        },
+        {
+          "name": "locationToken",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "noteText",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "orderId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "orderNumber",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "currencyCode",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "totalAmount",
+          "type": "Decimal",
+          "nullable": false
+        },
+        {
+          "name": "paymentReference",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "paidAt",
+          "type": "DateTimeOffset?",
+          "nullable": true
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "OrderItem",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "orderItemId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "orderId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "accessType",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "unitPrice",
+          "type": "Decimal",
+          "nullable": false
+        },
+        {
+          "name": "quantity",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "lineTotal",
+          "type": "Decimal",
+          "nullable": false
+        },
+        {
+          "name": "rentalDays",
+          "type": "Int32?",
+          "nullable": true
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "ReadingGoal",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "goalId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "targetYear",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "targetBooks",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "ReadingProgress",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "progressId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "chapterId",
+          "type": "Int64?",
+          "nullable": true
+        },
+        {
+          "name": "currentPage",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "locationToken",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "startedAt",
+          "type": "DateTimeOffset?",
+          "nullable": true
+        },
+        {
+          "name": "lastReadAt",
+          "type": "DateTimeOffset?",
+          "nullable": true
+        },
+        {
+          "name": "finishedAt",
+          "type": "DateTimeOffset?",
+          "nullable": true
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "ReadingSession",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "sessionId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "chapterId",
+          "type": "Int64?",
+          "nullable": true
+        },
+        {
+          "name": "clientSessionKey",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "startedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "endedAt",
+          "type": "DateTimeOffset?",
+          "nullable": true
+        },
+        {
+          "name": "activeSeconds",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "startPage",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "endPage",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "pagesRead",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Review",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "reviewId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "rating",
+          "type": "Int32",
+          "nullable": false
+        },
+        {
+          "name": "reviewText",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "SavedBook",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "savedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "SubscriptionPlan",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "planId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "planCode",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "price",
+          "type": "Decimal",
+          "nullable": false
+        },
+        {
+          "name": "currencyCode",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "billingInterval",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "offlineAccess",
+          "type": "Boolean",
+          "nullable": false
+        },
+        {
+          "name": "adFree",
+          "type": "Boolean",
+          "nullable": false
+        },
+        {
+          "name": "isActive",
+          "type": "Boolean",
+          "nullable": false
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "displayName",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "avatarUrl",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "bio",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "timezone",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "UserBook",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "userBookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "bookId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "addedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "archivedAt",
+          "type": "DateTimeOffset?",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "UserSubscription",
+      "kind": "Response",
+      "fields": [
+        {
+          "name": "subscriptionId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "planId",
+          "type": "Int64",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "nullable": false
+        },
+        {
+          "name": "startedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "endsAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "cancelAtPeriodEnd",
+          "type": "Boolean",
+          "nullable": false
+        },
+        {
+          "name": "providerReference",
+          "type": "String",
+          "nullable": true
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTimeOffset",
+          "nullable": false
+        }
+      ]
+    }
+  ]
+}
