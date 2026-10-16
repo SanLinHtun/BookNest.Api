@@ -1,0 +1,10 @@
+**
+!BookNest.Api/
+!BookNest.Api/**
+BookNest.Api/bin/
+BookNest.Api/obj/
+BookNest.Api/appsettings.Local.json
+BookNest.Api/**/.env
+BookNest.Api/**/appsettings.*.Local.json
+BookNest.Api/**/*.user
+BookNest.Api/Properties/
