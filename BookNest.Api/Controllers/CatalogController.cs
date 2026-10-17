@@ -19,9 +19,10 @@ public sealed class CatalogController(BookNestDbContext db) : UserController
         var query = db.Books.AsNoTracking().Where(x => x.Status == "PUBLISHED");
         if (!string.IsNullOrWhiteSpace(search))
         {
-            query = query.Where(x => x.Title.Contains(search) || db.BookAuthors.Any(link =>
+            var term = search.Trim().ToLower();
+            query = query.Where(x => x.Title.ToLower().Contains(term) || db.BookAuthors.Any(link =>
                 link.BookId == x.BookId && db.Authors.Any(author =>
-                    author.AuthorId == link.AuthorId && author.AuthorName.Contains(search))));
+                    author.AuthorId == link.AuthorId && author.AuthorName.ToLower().Contains(term))));
         }
 
         if (categoryId != null)

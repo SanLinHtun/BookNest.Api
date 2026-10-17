@@ -13,7 +13,7 @@ public sealed class HomeController(BookNestDbContext db) : ControllerBase
     public async Task<IActionResult> Get(CancellationToken ct)
     {
         var categories = await db.Categories.AsNoTracking()
-            .Where(c => c.IsActive).OrderBy(c => c.SortOrder).ThenBy(c => c.CategoryId)
+            .Where(c => c.IsActive && c.ParentCategoryId == null).OrderBy(c => c.SortOrder).ThenBy(c => c.CategoryId).Take(4)
             .Select(c => new { c.CategoryId, c.Name, c.Slug, c.IconKey }).ToListAsync(ct);
 
         var books = await db.Books.AsNoTracking().Where(b => b.Status == "PUBLISHED")

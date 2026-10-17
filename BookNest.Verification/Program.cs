@@ -145,4 +145,13 @@ var library =
         progress = db.ReadingProgress.FirstOrDefault(p => p.UserId == 1 && p.BookId == b.BookId)
     };
 Check(library.Take(20).ToQueryString().Contains("reading_progress"), "Library progress query translates to PostgreSQL");
+Check(typeof(ScreenCatalogController).GetMethod("Library")!.IsDefined(typeof(AuthorizeAttribute), true)
+    && typeof(ScreenCatalogController).GetMethod("Collections")!.IsDefined(typeof(AuthorizeAttribute), true),
+    "Screen library and collections require authentication");
+var cardSearch = db.Books.Where(b => b.Status == "PUBLISHED" && (b.Title.ToLower().Contains("clear") ||
+    db.BookAuthors.Any(l => l.BookId == b.BookId && db.Authors.Any(a => a.AuthorId == l.AuthorId && a.AuthorName.ToLower().Contains("clear")))));
+Check(cardSearch.Take(20).ToQueryString().Contains("lower("), "Case-insensitive card search translates to PostgreSQL");
+var screenLibrary = db.Books.Where(b => db.UserBooks.Any(l => l.UserId == 1 && l.BookId == b.BookId && l.ArchivedAt == null))
+    .OrderByDescending(b => db.UserBooks.Where(l => l.UserId == 1 && l.BookId == b.BookId).Select(l => (DateTimeOffset?)l.AddedAt).Max()).ThenBy(b => b.BookId);
+Check(screenLibrary.Take(20).ToQueryString().Contains("max("), "Screen library ordering translates to PostgreSQL");
 Console.WriteLine($"{count} checks passed.");
