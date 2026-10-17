@@ -10,7 +10,7 @@ namespace BookNest.Api.Controllers;
 public sealed class CatalogController(BookNestDbContext db) : UserController
 {
     /// <summary>
-    /// Returns a page of published books with optional title and category filters.
+    /// Returns a page of published books with optional title/author and category filters.
     /// </summary>
     [HttpGet("books")]
     public async Task<IActionResult> Books(string? search, long? categoryId, int page = 1, int pageSize = 20, CancellationToken ct = default)
@@ -19,7 +19,9 @@ public sealed class CatalogController(BookNestDbContext db) : UserController
         var query = db.Books.AsNoTracking().Where(x => x.Status == "PUBLISHED");
         if (!string.IsNullOrWhiteSpace(search))
         {
-            query = query.Where(x => x.Title.Contains(search));
+            query = query.Where(x => x.Title.Contains(search) || db.BookAuthors.Any(link =>
+                link.BookId == x.BookId && db.Authors.Any(author =>
+                    author.AuthorId == link.AuthorId && author.AuthorName.Contains(search))));
         }
 
         if (categoryId != null)

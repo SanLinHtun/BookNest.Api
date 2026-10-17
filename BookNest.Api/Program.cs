@@ -42,6 +42,7 @@ if (args.Contains("--schema"))
 }
 
 app.UseExceptionHandler();
+app.UseStaticFiles();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
