@@ -2,6 +2,8 @@
 
 Base URL: `https://booknest-api-3jl3.onrender.com`
 
+For Login / Sign Up and using the same token with Continue Reading, library, notes and collections, see [LOGIN_API.md](LOGIN_API.md). The expanded catalog and current response examples are in [FIGMA_API_AUDIT.md](FIGMA_API_AUDIT.md).
+
 ## Initial screen: one request
 
 `GET /api/v1/home` is public and requires no token. It returns:

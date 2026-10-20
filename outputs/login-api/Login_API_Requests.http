@@ -1,0 +1,44 @@
+@baseUrl = https://booknest-api-3jl3.onrender.com
+@accessToken = paste-access-token
+@refreshToken = paste-refresh-token
+
+### Login — fill using the local ignored demo credential file
+POST {{baseUrl}}/api/v1/auth/login
+Content-Type: application/json
+
+{"email":"figma.reader.20261017@example.invalid","password":"replace-with-demo-password"}
+
+### Signup — use your own account details; compare Confirm Password in the app
+POST {{baseUrl}}/api/v1/auth/register
+Content-Type: application/json
+
+{"displayName":"Your Reader Name","email":"your-own-email@example.com","password":"replace-with-your-password-12-or-more-characters"}
+
+### Profile — same access token as every private API below
+GET {{baseUrl}}/api/v1/me
+Authorization: Bearer {{accessToken}}
+
+### My Books
+GET {{baseUrl}}/api/v1/screens/library?tab=all
+Authorization: Bearer {{accessToken}}
+
+### Continue Reading
+GET {{baseUrl}}/api/v1/screens/library?tab=reading
+Authorization: Bearer {{accessToken}}
+
+### Notes screen
+GET {{baseUrl}}/api/v1/screens/library?tab=notes
+Authorization: Bearer {{accessToken}}
+
+### Collections
+GET {{baseUrl}}/api/v1/screens/collections?tab=all
+Authorization: Bearer {{accessToken}}
+
+### Refresh — replace both stored tokens with this response
+POST {{baseUrl}}/api/v1/auth/refresh
+Content-Type: application/json
+
+{"refreshToken":"{{refreshToken}}"}
+
+### Home — public
+GET {{baseUrl}}/api/v1/home
